@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class FrameInteractable : MonoBehaviour
@@ -10,9 +11,13 @@ public class FrameInteractable : MonoBehaviour
     private bool isInteracted = false;
     public GameObject frame;
 
-    public GameObject dissolveObject; // Assign this in the Inspector
+    public GameObject dissolveObject; // Assign the object that need to change material
     public bool dissolveOut = true; // True for dissolve to transparent, false for solid
     public float dissolveSpeed = 0.5f;
+    public Transform destination;
+    public float movementSpeed = 1f;
+    public float waitToDissolve = 2f;
+    public bool finishPuzzle = false;
 
     private float targetDissolveValue;
     private float currentDissolveValue;
@@ -48,7 +53,7 @@ public class FrameInteractable : MonoBehaviour
         {
             if(canInteract)
             {
-                if(Input.GetKeyDown(KeyCode.E))
+                if(Input.GetKeyDown(KeyCode.Mouse0))
                 {
                     isInteracted = true;
                 }
@@ -59,21 +64,24 @@ public class FrameInteractable : MonoBehaviour
     void moveFrame()
     {
         //moving frame further and then start to dissolve
+        Vector3 destinationPosition = destination.position;
+        transform.position = Vector3.MoveTowards(transform.position, destinationPosition, movementSpeed * Time.deltaTime);
 
-
-        disableFrame();
+        Invoke("disableFrame", waitToDissolve);
     }
 
     void Update()
     {
 
         interact();
-        // disableFrame();
+        
 
     }
 
     void disableFrame()
     {
+        finishPuzzle = true;
+
         // Determine the target value based on the desired direction of the dissolve
         targetDissolveValue = dissolveOut ? 1f : -1f;
 
