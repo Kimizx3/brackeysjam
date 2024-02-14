@@ -15,14 +15,19 @@ public class Drag : MonoBehaviour
     [SerializeField] private float pullForce = 50;
     [SerializeField] private float grabBreakingForce = 100f;
     [SerializeField] private float grabBreakingTorque = 100f;
+    
 
-    [SerializeField] private TextMeshPro UseText;
-
+    // Snap Here
+    [SerializeField] private float snapDistance = 1f;
+    [SerializeField] private LayerMask snapLayerMask;
+    [SerializeField] private LayerMask paintLayerMask;
+    
     private FixedJoint grabJoint;
     private Rigidbody grabbedRigidbody;
 
     private void Awake()
     {
+        //transform.GetComponent<Collider>().enabled = false;
         if (holdPoint == null)
         {
             Debug.LogError("Grab hold point must not be null!");
@@ -55,6 +60,7 @@ public class Drag : MonoBehaviour
         var ray = new Ray(transform.position, transform.forward);
 
         RaycastHit hit;
+        //RaycastHit[] hits = Physics.RaycastAll(transform.position,transform.forward,Mathf.Infinity, snapLayerMask);
         var everythingExceptPlayer = ~(1 << LayerMask.NameToLayer("Player"));
         var layerMask = Physics.DefaultRaycastLayers & everythingExceptPlayer;
         var hitSomething = Physics.Raycast(ray, out hit, pullingRange, layerMask);
@@ -108,7 +114,7 @@ public class Drag : MonoBehaviour
         {
             Physics.IgnoreCollision(myCollider, grabbedRigidbody.GetComponent<Collider>(), false);
         }
-
+        AttempSnap();
         grabbedRigidbody = null;
     }
 
@@ -125,5 +131,22 @@ public class Drag : MonoBehaviour
     private void OnJointBreak(float breakForce)
     {
         Drop();
+    }
+
+    private void AttempSnap()
+    {
+        RaycastHit[] hits = Physics.RaycastAll(transform.position, transform.forward, Mathf.Infinity, snapLayerMask);
+        foreach (var hit in hits)
+        {
+            if (Vector3.Distance(transform.position, hit.transform.position) < snapDistance)
+            {
+                grabbedRigidbody.transform.localPosition = hit.transform.localPosition;
+                grabbedRigidbody.transform.rotation = hit.transform.rotation;
+                //grabbedRigidbody.transform.parent = hit.transform;
+                grabbedRigidbody.constraints = RigidbodyConstraints.FreezeAll;
+                grabbedRigidbody.isKinematic = true;
+                return;
+            }
+        }
     }
 }
