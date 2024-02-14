@@ -24,7 +24,6 @@ public class FrameInteractable : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        // Debug.Log(other.gameObject.name);
         if(other.gameObject.name == "Player")
         {
             canInteract = true;
@@ -51,7 +50,6 @@ public class FrameInteractable : MonoBehaviour
             {
                 if(Input.GetKeyDown(KeyCode.E))
                 {
-                    // Debug.Log("EEEEE");
                     isInteracted = true;
                 }
             }
@@ -60,7 +58,9 @@ public class FrameInteractable : MonoBehaviour
 
     void moveFrame()
     {
-        
+        //moving frame further and then start to dissolve
+
+
         disableFrame();
     }
 
@@ -79,13 +79,12 @@ public class FrameInteractable : MonoBehaviour
 
         // Update the dissolve value towards the target
         currentDissolveValue = Mathf.MoveTowards(currentDissolveValue, targetDissolveValue, dissolveSpeed * Time.deltaTime);
-        Debug.Log(currentDissolveValue);
+
         // Apply the updated dissolve value to the material
-        // dissolveMaterial.SetFloat("_DissolveAmount", currentDissolveValue);
         dissolveObject.GetComponent<Renderer>().material.SetFloat("_Dissolve_Time", currentDissolveValue);
 
         // Optionally, deactivate the object when fully dissolved
-        if (dissolveOut && currentDissolveValue >= 0.5f)
+        if (dissolveOut && currentDissolveValue >= 0.45f)
         {
             frame.SetActive(false);
         }
