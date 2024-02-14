@@ -138,14 +138,17 @@ public class Drag : MonoBehaviour
         RaycastHit[] hits = Physics.RaycastAll(transform.position, transform.forward, Mathf.Infinity, snapLayerMask);
         foreach (var hit in hits)
         {
-            if (Vector3.Distance(transform.position, hit.transform.position) < snapDistance)
+            if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Paint"))
             {
-                grabbedRigidbody.transform.localPosition = hit.transform.localPosition;
-                grabbedRigidbody.transform.rotation = hit.transform.rotation;
-                //grabbedRigidbody.transform.parent = hit.transform;
-                grabbedRigidbody.constraints = RigidbodyConstraints.FreezeAll;
-                grabbedRigidbody.isKinematic = true;
-                return;
+                if (Vector3.Distance(transform.position, hit.transform.position) < snapDistance)
+                {
+                    grabbedRigidbody.transform.localPosition = hit.transform.localPosition;
+                    grabbedRigidbody.transform.rotation = hit.transform.rotation;
+                    //grabbedRigidbody.transform.parent = hit.transform;
+                    grabbedRigidbody.constraints = RigidbodyConstraints.FreezeAll;
+                    grabbedRigidbody.isKinematic = true;
+                    return;
+                }
             }
         }
     }
