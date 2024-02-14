@@ -4,15 +4,42 @@ using UnityEngine;
 
 public class Interact : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    
+    [SerializeField]
+    private bool canInteract = false;
+    private GameObject frame;
+
+    void OnTriggerEnter(Collider other)
+    {
+        Debug.Log(other.gameObject.name);
+        if(other.gameObject.name == "Player")
+        {
+            canInteract = true;
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if(other.gameObject.name == "Player")
+        {
+            canInteract = false;
+        }
+    }
+
+    void interact()
+    {
+        if(canInteract)
+        {
+            if(Input.GetKeyDown(KeyCode.E))
+            {
+                moveFrame();
+            }
+        }
+    }
+
+    void moveFrame()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
