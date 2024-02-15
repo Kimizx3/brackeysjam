@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 4758379428532158726}
   m_Layer: 8
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -393,9 +393,6 @@ MonoBehaviour:
   snapLayerMask:
     serializedVersion: 2
     m_Bits: 9
-  paintLayerMask:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &8693035481828333039
 GameObject:
   m_ObjectHideFlags: 0
@@ -407,7 +404,7 @@ GameObject:
   - component: {fileID: 954378183958126955}
   m_Layer: 8
   m_Name: GrabPoint
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
