@@ -20,7 +20,7 @@ public class Drag : MonoBehaviour
     // Snap Here
     [SerializeField] private float snapDistance = 1f;
     [SerializeField] private LayerMask snapLayerMask;
-    [SerializeField] private LayerMask paintLayerMask;
+    //[SerializeField] private LayerMask paintLayerMask;
     
     private FixedJoint grabJoint;
     private Rigidbody grabbedRigidbody;
@@ -114,7 +114,12 @@ public class Drag : MonoBehaviour
         {
             Physics.IgnoreCollision(myCollider, grabbedRigidbody.GetComponent<Collider>(), false);
         }
-        AttempSnap();
+
+        if (grabbedRigidbody.CompareTag("Paint"))
+        {
+            AttempSnap();
+        }
+        
         grabbedRigidbody = null;
     }
 
@@ -138,18 +143,16 @@ public class Drag : MonoBehaviour
         RaycastHit[] hits = Physics.RaycastAll(transform.position, transform.forward, Mathf.Infinity, snapLayerMask);
         foreach (var hit in hits)
         {
-            if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Paint"))
+            if (Vector3.Distance(transform.position, hit.transform.position) < snapDistance)
             {
-                if (Vector3.Distance(transform.position, hit.transform.position) < snapDistance)
-                {
-                    grabbedRigidbody.transform.localPosition = hit.transform.localPosition;
-                    grabbedRigidbody.transform.rotation = hit.transform.rotation;
-                    //grabbedRigidbody.transform.parent = hit.transform;
-                    grabbedRigidbody.constraints = RigidbodyConstraints.FreezeAll;
-                    grabbedRigidbody.isKinematic = true;
-                    return;
-                }
+                grabbedRigidbody.transform.localPosition = hit.transform.localPosition;
+                grabbedRigidbody.transform.rotation = hit.transform.rotation;
+                //grabbedRigidbody.transform.parent = hit.transform;
+                grabbedRigidbody.constraints = RigidbodyConstraints.FreezeAll;
+                grabbedRigidbody.isKinematic = true;
+                return;
             }
+            
         }
     }
 }
