@@ -9,10 +9,9 @@ public class PortalTeleporter : MonoBehaviour
     public Transform receiver;
 
     private bool playerIsOverlapping = false;
+    
 
-    // Update is called once per frame
-
-    void Update()
+    private void Update()
     {
         if (playerIsOverlapping)
         {
@@ -27,7 +26,6 @@ public class PortalTeleporter : MonoBehaviour
                 player.Rotate(Vector3.up, rotationDiff);
 
                 Vector3 positionOffSet = Quaternion.Euler(0f, rotationDiff, 0f)*portalToPlayer;
-                //Vector3 positionOffSet = portalToPlayer;
                 player.position = receiver.position + positionOffSet;
 
                 playerIsOverlapping = false;
@@ -40,7 +38,6 @@ public class PortalTeleporter : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerIsOverlapping = true;
-            Debug.Log("Teleported!");
         }
     }
 
@@ -49,7 +46,6 @@ public class PortalTeleporter : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerIsOverlapping = false;
-            Debug.Log("Failed");
         }
     }
 }
