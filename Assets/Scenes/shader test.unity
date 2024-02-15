@@ -14130,7 +14130,7 @@ MonoBehaviour:
   intensityOutside: 1
   blendingMode: 1
   spotAngleFromLight: 1
-  spotAngle: 21.832571
+  spotAngle: 23.873608
   coneRadiusStart: 0
   shaderAccuracy: 0
   geomMeshType: 0
@@ -14143,7 +14143,7 @@ MonoBehaviour:
   attenuationEquation: 1
   attenuationCustomBlending: 0.5
   fallOffStart: 0
-  fallOffEnd: 8.6202345
+  fallOffEnd: 9.642052
   depthBlendDistance: 2
   cameraClippingDistance: 0.5
   glareFrontal: 0.5
@@ -14176,8 +14176,8 @@ Light:
   m_Shape: 0
   m_Color: {r: 0.5083659, g: 0.55157757, b: 0.5943396, a: 1}
   m_Intensity: 1
-  m_Range: 8.6202345
-  m_SpotAngle: 21.832571
+  m_Range: 9.642052
+  m_SpotAngle: 23.873608
   m_InnerSpotAngle: 17.343487
   m_CookieSize: 10
   m_Shadows:
