@@ -19,8 +19,8 @@ public class DoorOpenDevice : MonoBehaviour
 
     private void Start()
     {
-        openRotation = quaternion.Euler(0,openAngle,0);
-        closeRotation = quaternion.Euler(0,closeAngle,0);
+        openRotation = Quaternion.Euler(0,openAngle,0);
+        closeRotation = Quaternion.Euler(0,closeAngle,0);
     }
 
     public void OpenDoor()

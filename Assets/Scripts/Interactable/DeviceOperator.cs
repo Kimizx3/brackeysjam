@@ -22,10 +22,10 @@ public class DeviceOperator : MonoBehaviour
                 {
                     hitCollider.SendMessage("OpenDoor", SendMessageOptions.DontRequireReceiver);
                 }
-                //else if(Vector3.Dot(transform.forward, direction.normalized) < 0.5f)
-                //{
-                    //hitCollider.SendMessage("CloseDoor", SendMessageOptions.DontRequireReceiver);
-                //}
+                else if(Vector3.Dot(transform.forward, direction.normalized) < 0.5f)
+                {
+                    hitCollider.SendMessage("CloseDoor", SendMessageOptions.DontRequireReceiver);
+                }
             }
         }
     }
