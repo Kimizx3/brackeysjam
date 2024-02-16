@@ -9,7 +9,7 @@ public class DeviceOperator : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             Collider[] hitColliders = Physics.OverlapSphere(transform.position, radius);
             foreach (Collider hitCollider in hitColliders)

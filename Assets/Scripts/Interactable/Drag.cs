@@ -11,7 +11,7 @@ public class Drag : MonoBehaviour
     [SerializeField] private float grabblingRange = 3;
     [SerializeField] private float pullingRange = 20;
     [SerializeField] private Transform holdPoint = null;
-    [SerializeField] private KeyCode grabKey = KeyCode.E;
+    [SerializeField] private KeyCode grabKey = KeyCode.Mouse0;
     [SerializeField] private float pullForce = 50;
     [SerializeField] private float grabBreakingForce = 100f;
     [SerializeField] private float grabBreakingTorque = 100f;
