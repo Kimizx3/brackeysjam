@@ -147,7 +147,7 @@ public class Drag : MonoBehaviour
             {
                 grabbedRigidbody.transform.localPosition = hit.transform.localPosition;
                 grabbedRigidbody.transform.rotation = hit.transform.rotation;
-                //grabbedRigidbody.transform.parent = hit.transform;
+                grabbedRigidbody.transform.parent = hit.transform;
                 grabbedRigidbody.constraints = RigidbodyConstraints.FreezeAll;
                 grabbedRigidbody.isKinematic = true;
                 return;
