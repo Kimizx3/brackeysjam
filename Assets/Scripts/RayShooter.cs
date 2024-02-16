@@ -12,6 +12,8 @@ public class RayShooter : MonoBehaviour
     public Vector3 boxCastSize = new Vector3(1, 1, 1); // Size of the rectangle cast
     public LayerMask hitLayers; // Layer(s) the boxcast should hit
 
+    public GameObject puzzleComponent;
+
     private void Start()
     {
         cam = GetComponent<Camera>();
@@ -57,6 +59,11 @@ public class RayShooter : MonoBehaviour
         }
         else
         {
+            if(puzzleComponent.GetComponent<FrameInteractable>().finishPuzzle)
+            {
+                quad.SetActive(false);
+                return;
+            }
             // Enable the quad if it's not already enabled
             if (quad && !quad.activeSelf)
                 quad.SetActive(true);

@@ -4,24 +4,20 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Paint
-<<<<<<< Updated upstream
-  - TargetTag
   - QuadTag
-=======
+  - TargetTag
   - Door
->>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Snapable
+  - 
   - Water
   - UI
-  - Paint
-  - layer1
-  - Player
-  - layer2
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 

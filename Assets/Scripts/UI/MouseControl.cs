@@ -26,7 +26,7 @@ public class MouseControls : MonoBehaviour
         if (Physics.Raycast(ray, out hit, raycastDistance))
         {
             // Object detected in front of the player
-            Debug.Log("Object detected: " + hit.collider.gameObject.name);
+            // Debug.Log("Object detected: " + hit.collider.gameObject.name);
 
             // Check if the object is clickable
             Clickable clickable = hit.collider.GetComponent<Clickable>();
