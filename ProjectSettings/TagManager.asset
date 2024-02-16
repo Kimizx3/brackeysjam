@@ -5,8 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Paint
+<<<<<<< Updated upstream
   - TargetTag
   - QuadTag
+=======
+  - Door
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
