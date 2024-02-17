@@ -1,50 +1,33 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LevelLoading : MonoBehaviour
 {
-    [SerializeField] private Collider triggerCollider;
     public Animator transition;
     public float transitionTime = 1.5f;
 
     public Canvas canvas;
-    public bool isTransitioning;
+    private bool isTransitioning = false;
+
     
-    //debug coroutine
 
-    private void Start()
+    public void LoadLevel()
     {
-        triggerCollider = GetComponent<BoxCollider>();
+        StartCoroutine(LoadNextLevelCoroutine(SceneManager.GetActiveScene().buildIndex + 1));
     }
 
-    private void OnTriggerEnter(Collider other)
+    private IEnumerator LoadNextLevelCoroutine(int levelIndex)
     {
-        if (other.CompareTag("Player") && !isTransitioning)
-        {
-            LoadNextLevel();
-        }
-    }
-
-    private void LoadNextLevel()
-    {
-        StartCoroutine(LoadNextLevel(SceneManager.GetActiveScene().buildIndex + 1));
-    }
-
-    IEnumerator LoadNextLevel(int levelIndex)
-    {
-        isTransitioning = true;
-        canvas.renderMode = RenderMode.ScreenSpaceOverlay;
-        //play animation
         transition.SetTrigger("Start");
-        //wait
+
+        // Wait for the transition animation to complete
         yield return new WaitForSeconds(transitionTime);
-        //load scene
+
+        // Load the scene asynchronously
         SceneManager.LoadScene(levelIndex);
+
+        // Ensure the scene is fully loaded before changing the Canvas render mode
         yield return new WaitForEndOfFrame();
-        canvas.renderMode = RenderMode.WorldSpace;
-        isTransitioning = false;
     }
 }

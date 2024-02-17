@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7064088585797047787}
   - component: {fileID: 6982847345098476257}
   - component: {fileID: 4758379428532158726}
-  - component: {fileID: 2682565399943082776}
+  - component: {fileID: 8572004311535037389}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -173,7 +173,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &2682565399943082776
+--- !u!114 &8572004311535037389
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -203,7 +203,6 @@ GameObject:
   - component: {fileID: 112804312254388912}
   - component: {fileID: 88387024842898874}
   - component: {fileID: 4442924350439537697}
-  - component: {fileID: 7392279875996330084}
   m_Layer: 8
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -420,7 +419,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4076419483466568925}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a2e950547a302c4bb3a395e7b80175d, type: 3}
   m_Name: 
@@ -432,27 +431,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   puzzleComponent: {fileID: 0}
---- !u!95 &7392279875996330084
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4076419483466568925}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8693035481828333039
 GameObject:
   m_ObjectHideFlags: 0

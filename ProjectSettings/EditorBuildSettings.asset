@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PortalScene.unity
     guid: 12a8ac49abc67fd4ebdee349338fa36c
+  - enabled: 1
+    path: Assets/Scenes/Level 2.unity
+    guid: 8f03ba625fe550348adf95432790e75f
   m_configObjects: {}
