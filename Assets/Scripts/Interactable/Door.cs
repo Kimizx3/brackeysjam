@@ -5,15 +5,17 @@ using UnityEngine;
 public class Door : MonoBehaviour
 {
     
-    private BoxCollider boxCollider;
+    
     public GameObject puzzleComponent;
+    public GameObject fakeWall;
+
+    public GameObject interactableDoor;
 
     public int newLayer;
     // Start is called before the first frame update
     void Start()
     {
-        boxCollider = this.gameObject.GetComponent<BoxCollider>();
-        boxCollider.enabled = false;
+        interactableDoor.GetComponent<DoorOpenDevice>().enabled = false;
         // Initialize newLayer
         newLayer = LayerMask.NameToLayer("Default");
     }
@@ -28,11 +30,12 @@ public class Door : MonoBehaviour
     {
         if(puzzleComponent.GetComponent<FrameInteractable>().finishPuzzle)
         {
-            Debug.Log("puzzle finished");
             //change layer of door
             ChangeLayerRecursive(gameObject, newLayer);
-            //enable the colider
-            boxCollider.enabled = true;
+            // disable the wall
+            fakeWall.SetActive(false);
+            //enable the interable script
+            interactableDoor.GetComponent<DoorOpenDevice>().enabled = true;
         }
     }
 

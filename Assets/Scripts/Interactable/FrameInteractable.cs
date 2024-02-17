@@ -18,6 +18,7 @@ public class FrameInteractable : MonoBehaviour
     public float movementSpeed = 1f;
     public float waitToDissolve = 2f;
     public bool finishPuzzle = false;
+    public Light pointLight;
 
     private float targetDissolveValue;
     private float currentDissolveValue;
@@ -81,6 +82,7 @@ public class FrameInteractable : MonoBehaviour
     void disableFrame()
     {
         finishPuzzle = true;
+        StartCoroutine(LightDimmingAndFlickering());
 
         // Determine the target value based on the desired direction of the dissolve
         targetDissolveValue = dissolveOut ? 1f : -1f;
@@ -96,5 +98,25 @@ public class FrameInteractable : MonoBehaviour
         {
             frame.SetActive(false);
         }
+    }
+
+    IEnumerator LightDimmingAndFlickering()
+    {
+        float initialIntensity = pointLight.intensity;
+        float time = 0;
+
+        while (time < 1f)
+        {
+            time += Time.deltaTime * dissolveSpeed;
+            pointLight.intensity = Mathf.Lerp(initialIntensity, 0, time);
+
+            // Optional: Flickering effect
+            pointLight.range += Mathf.Sin(Time.time * 10) * 0.1f; // Adjust for desired flickering
+        
+            yield return null;
+        }
+
+        // Make sure the light turns off at the end of the effect
+        pointLight.intensity = 0;
     }
 }
