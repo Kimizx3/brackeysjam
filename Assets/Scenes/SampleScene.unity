@@ -506,6 +506,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 112804312254388912, guid: ff5a08850e7eacf4b9cf2e02f1b8a890,
+        type: 3}
+      propertyPath: snapLayerMask.m_Bits
+      value: 512
+      objectReference: {fileID: 0}
     - target: {fileID: 230753446926727163, guid: ff5a08850e7eacf4b9cf2e02f1b8a890,
         type: 3}
       propertyPath: m_Name
@@ -3881,7 +3886,7 @@ GameObject:
   - component: {fileID: 873735924}
   - component: {fileID: 873735923}
   - component: {fileID: 873735922}
-  m_Layer: 3
+  m_Layer: 9
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4547,7 +4552,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1017073191}
-  m_Layer: 3
+  m_Layer: 9
   m_Name: SnapPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

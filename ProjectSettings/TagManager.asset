@@ -7,6 +7,7 @@ TagManager:
   - QuadTag
   - TargetTag
   - Door
+  - Paint
   layers:
   - Default
   - TransparentFX
@@ -14,10 +15,10 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - layer1
+  - layer2
+  - Player
+  - snapable
   - 
   - 
   - 
