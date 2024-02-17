@@ -44,7 +44,7 @@ public class MouseControls : MonoBehaviour
         else
         {
             // No object detected
-            Debug.Log("No object detected in front of the player.");
+            //Debug.Log("No object detected in front of the player.");
 
             // Change cursor texture to defaultText
             Cursor.SetCursor(defaultText, new Vector2(cursorSize.x / 2, cursorSize.y / 2), CursorMode.Auto);

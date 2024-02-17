@@ -6,6 +6,7 @@ using UnityEngine;
 public class DeviceOperator : MonoBehaviour
 {
     public float radius = 1.5f;
+    
 
     private void Update()
     {
@@ -22,9 +23,9 @@ public class DeviceOperator : MonoBehaviour
                 {
                     hitCollider.SendMessage("OpenDoor", SendMessageOptions.DontRequireReceiver);
                 }
-                else if(Vector3.Dot(transform.forward, direction.normalized) < 0.5f)
+                //else if(Vector3.Dot(transform.forward, direction.normalized) < 0.5f)
                 {
-                    hitCollider.SendMessage("CloseDoor", SendMessageOptions.DontRequireReceiver);
+                    //hitCollider.SendMessage("CloseDoor", SendMessageOptions.DontRequireReceiver);
                 }
             }
         }

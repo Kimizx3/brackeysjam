@@ -26,13 +26,14 @@ public class DoorOpenDevice : MonoBehaviour
     public void OpenDoor()
     {
         StartCoroutine(OpenDoorCoroutine());
+        
     }
 
     IEnumerator OpenDoorCoroutine()
     {
         float t = 0f;
         Quaternion initialRotation = transform.rotation;
-        Quaternion targetRotation = openRotation;
+        Quaternion targetRotation = initialRotation * Quaternion.Euler(0, openAngle, 0);
 
         while (t < 1f)
         {
@@ -40,7 +41,6 @@ public class DoorOpenDevice : MonoBehaviour
             transform.rotation = Quaternion.Slerp(initialRotation, targetRotation, t);
             yield return null;
         }
-
         open = true;
     }
 
@@ -53,7 +53,7 @@ public class DoorOpenDevice : MonoBehaviour
     {
         float t = 0f;
         Quaternion initialRotation = transform.rotation;
-        Quaternion targetRotation = closeRotation;
+        Quaternion targetRotation = initialRotation * Quaternion.Euler(0, openAngle, 0);
 
         while (t < 1f)
         {
@@ -61,7 +61,6 @@ public class DoorOpenDevice : MonoBehaviour
             transform.rotation = Quaternion.Slerp(initialRotation, targetRotation, t);
             yield return null;
         }
-
         open = false;
     }
 }
