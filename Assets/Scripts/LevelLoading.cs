@@ -19,6 +19,7 @@ public class LevelLoading : MonoBehaviour
 
     private IEnumerator LoadNextLevelCoroutine(int levelIndex)
     {
+        isTransitioning = true;
         transition.SetTrigger("Start");
 
         // Wait for the transition animation to complete
@@ -29,5 +30,6 @@ public class LevelLoading : MonoBehaviour
 
         // Ensure the scene is fully loaded before changing the Canvas render mode
         yield return new WaitForEndOfFrame();
+        isTransitioning = false;
     }
 }
