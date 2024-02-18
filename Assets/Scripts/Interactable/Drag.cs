@@ -17,6 +17,7 @@ public class Drag : MonoBehaviour
     [SerializeField] private float grabBreakingTorque = 100f;
     
 
+    [SerializeField] private Transform dropPosition = null;
     // Snap Here
     [SerializeField] private float snapDistance = 1f;
     [SerializeField] private LayerMask snapLayerMask;
@@ -119,6 +120,10 @@ public class Drag : MonoBehaviour
         {
             AttempSnap();
         }
+        if (dropPosition != null) // If drop position is set, move the grabbed object there
+        {
+            grabbedRigidbody.transform.position = dropPosition.position;
+        }
         
         grabbedRigidbody = null;
     }
@@ -147,7 +152,7 @@ public class Drag : MonoBehaviour
             {
                 grabbedRigidbody.transform.localPosition = hit.transform.localPosition;
                 grabbedRigidbody.transform.rotation = hit.transform.rotation;
-                grabbedRigidbody.transform.parent = hit.transform;
+                //grabbedRigidbody.transform.parent = hit.transform;
                 grabbedRigidbody.constraints = RigidbodyConstraints.FreezeAll;
                 grabbedRigidbody.isKinematic = true;
                 return;

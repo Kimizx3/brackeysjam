@@ -144,11 +144,7 @@
             {
                 "type": "UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
                 "key": "ShapeBuilder.LastSize",
-<<<<<<< Updated upstream
-                "value": "{\"m_Value\":{\"x\":1.4574071168899537,\"y\":0.7378067970275879,\"z\":-0.2989635467529297}}"
-=======
                 "value": "{\"m_Value\":{\"x\":25.098369598388673,\"y\":-0.4102191925048828,\"z\":31.167381286621095}}"
->>>>>>> Stashed changes
             },
             {
                 "type": "UnityEngine.Quaternion, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
