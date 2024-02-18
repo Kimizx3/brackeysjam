@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: 54c1da98a5ec0554d884ad87fbba1bfb,
+  m_LightingDataAsset: {fileID: 112000000, guid: 5cd606c21f0f35a438fc243399cc6485,
     type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: f705b07c5ed931a4facbf27abb175e28,
     type: 2}
@@ -6972,6 +6972,7 @@ MonoBehaviour:
   puzzleComponent: {fileID: 989379774}
   fakeWall: {fileID: 631444719}
   interactableDoor: {fileID: 35590419}
+  WallQuad: {fileID: 0}
   newLayer: 0
 --- !u!1001 &1255126469
 PrefabInstance:
