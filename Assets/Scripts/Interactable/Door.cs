@@ -10,6 +10,7 @@ public class Door : MonoBehaviour
     public GameObject fakeWall;
 
     public GameObject interactableDoor;
+    public GameObject WallQuad;
 
     public int newLayer;
     // Start is called before the first frame update
@@ -28,15 +29,32 @@ public class Door : MonoBehaviour
 
     void checkIfPuzzleFinished()
     {
-        if(puzzleComponent.GetComponent<FrameInteractable>().finishPuzzle)
+        if(puzzleComponent.GetComponent<FrameInteractable>() != null)
         {
-            //change layer of door
-            ChangeLayerRecursive(gameObject, newLayer);
-            // disable the wall
-            fakeWall.SetActive(false);
-            //enable the interable script
-            interactableDoor.GetComponent<DoorOpenDevice>().enabled = true;
+            if(puzzleComponent.GetComponent<FrameInteractable>().finishPuzzle)
+            {
+                //change layer of door
+                ChangeLayerRecursive(gameObject, newLayer);
+                // disable the wall
+                fakeWall.SetActive(false);
+                //enable the interable script
+                interactableDoor.GetComponent<DoorOpenDevice>().enabled = true;
+            }
         }
+        else if(puzzleComponent.GetComponent<SnapInteractable>() != null)
+        {
+            if(puzzleComponent.GetComponent<SnapInteractable>().puzzleFinished)
+            {
+                //change layer of door
+                ChangeLayerRecursive(gameObject, newLayer);
+                // disable the wall
+                WallQuad.SetActive(false);
+                fakeWall.SetActive(false);
+                //enable the interable script
+                interactableDoor.GetComponent<DoorOpenDevice>().enabled = true;
+            }
+        }
+        
     }
 
     void ChangeLayerRecursive(GameObject gameObject, int newLayer)
@@ -47,9 +65,5 @@ public class Door : MonoBehaviour
         {
             ChangeLayerRecursive(child.gameObject, newLayer);
         }
-    }
-    void OnTriggerEnter(Collider other)
-    {
-
     }
 }
