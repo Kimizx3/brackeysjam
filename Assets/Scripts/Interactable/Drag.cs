@@ -26,6 +26,7 @@ public class Drag : MonoBehaviour
     
     private FixedJoint grabJoint;
     private Rigidbody grabbedRigidbody;
+    public bool isPlaced = false;
 
     private void Awake()
     {
@@ -151,6 +152,7 @@ public class Drag : MonoBehaviour
         {
             if (Vector3.Distance(transform.position, hit.transform.position) < snapDistance)
             {
+                isPlaced = true;
                 grabbedRigidbody.transform.localPosition = hit.transform.localPosition;
                 grabbedRigidbody.transform.rotation = hit.transform.rotation;
                 //grabbedRigidbody.transform.parent = hit.transform;
@@ -162,8 +164,6 @@ public class Drag : MonoBehaviour
                     // StartCoroutine(HideMessage());
                     StartCoroutine(HideMessage());
                 }
-
-                
                 return;
             }
             
