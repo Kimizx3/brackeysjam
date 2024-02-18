@@ -18,6 +18,7 @@ public class Drag : MonoBehaviour
     
 
     [SerializeField] private Transform dropPosition = null;
+    [SerializeField] private Text messageText;
     // Snap Here
     [SerializeField] private float snapDistance = 1f;
     [SerializeField] private LayerMask snapLayerMask;
@@ -155,9 +156,22 @@ public class Drag : MonoBehaviour
                 //grabbedRigidbody.transform.parent = hit.transform;
                 grabbedRigidbody.constraints = RigidbodyConstraints.FreezeAll;
                 grabbedRigidbody.isKinematic = true;
+                if (messageText != null)
+                {
+                    messageText.text = "Object snapped successfully!";
+                    // StartCoroutine(HideMessage());
+                    StartCoroutine(HideMessage());
+                }
+
+                
                 return;
             }
             
         }
+    }
+    private IEnumerator HideMessage()
+    {
+        yield return new WaitForSeconds(2f); // Adjust the duration as needed
+        messageText.text = ""; // Hide the message
     }
 }
