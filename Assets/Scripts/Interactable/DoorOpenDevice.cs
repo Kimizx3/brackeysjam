@@ -11,6 +11,7 @@ public class DoorOpenDevice : MonoBehaviour
     public float openAngle = 90f;
     public float closeAngle = 0f;
     public float smoothSpeed = 2f;
+    public GameObject SFX;
 
     private Quaternion openRotation;
     private Quaternion closeRotation;
@@ -35,12 +36,14 @@ public class DoorOpenDevice : MonoBehaviour
         Quaternion initialRotation = transform.rotation;
         Quaternion targetRotation = initialRotation * Quaternion.Euler(0, openAngle, 0);
 
+        SFX.GetComponent<SoundManager>().playerDoorSound();
         while (t < 1f)
         {
             t += Time.deltaTime * smoothSpeed;
             transform.rotation = Quaternion.Slerp(initialRotation, targetRotation, t);
             yield return null;
         }
+        
         open = true;
     }
 

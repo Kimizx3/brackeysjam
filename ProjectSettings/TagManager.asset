@@ -8,6 +8,8 @@ TagManager:
   - TargetTag
   - Door
   - Paint
+  - Carpet
+  - WoodFloor
   layers:
   - Default
   - TransparentFX
