@@ -40,15 +40,15 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Albedo:
-        m_Texture: {fileID: 2800000, guid: 326df4b1c3b836742a8f38f73d224c18, type: 3}
+        m_Texture: {fileID: 2800000, guid: 317ddd695a4379149bf53803d7aaa3d2, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Metallic:
-        m_Texture: {fileID: 2800000, guid: 7379d05edf98d6e448119a0eb8348abf, type: 3}
+        m_Texture: {fileID: 2800000, guid: c739b9ed788d0c44e8ab017932ac9b1b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normal:
-        m_Texture: {fileID: 2800000, guid: f11e727fcb23d7e4ba2df6e962838d67, type: 3}
+        m_Texture: {fileID: 2800000, guid: 3651b1e99d897334ab940b8f44bae601, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_2a0e264a18f0462ea2d3eed05f5b2017_Texture_1_Texture2D:

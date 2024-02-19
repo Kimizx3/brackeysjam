@@ -19,6 +19,7 @@ public class FrameInteractable : MonoBehaviour
     public float waitToDissolve = 2f;
     public bool finishPuzzle = false;
     public Light pointLight;
+    public GameObject sfx;
 
     private float targetDissolveValue;
     private float currentDissolveValue;
@@ -69,6 +70,8 @@ public class FrameInteractable : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, destinationPosition, movementSpeed * Time.deltaTime);
 
         Invoke("disableFrame", waitToDissolve);
+        //player magic sfx
+        sfx.GetComponent<SoundManager>().playerMagicAppearingSound();
     }
 
     void Update()
@@ -82,6 +85,7 @@ public class FrameInteractable : MonoBehaviour
     void disableFrame()
     {
         finishPuzzle = true;
+        
         StartCoroutine(LightDimmingAndFlickering());
 
         // Determine the target value based on the desired direction of the dissolve

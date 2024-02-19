@@ -5343,6 +5343,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5471701351619861317, guid: c817c0f0dba9d394397790f06efd8c91,
+        type: 3}
+      propertyPath: sfx
+      value: 
+      objectReference: {fileID: 101770460}
+    - target: {fileID: 5471701351619861317, guid: c817c0f0dba9d394397790f06efd8c91,
+        type: 3}
+      propertyPath: waitToDissolve
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7524434233338745230, guid: c817c0f0dba9d394397790f06efd8c91,
         type: 3}
       propertyPath: m_CastShadows

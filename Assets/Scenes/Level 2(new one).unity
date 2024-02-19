@@ -4551,6 +4551,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1192738344}
+    - targetCorrespondingSourceObject: {fileID: 6807205088580110501, guid: ff5a08850e7eacf4b9cf2e02f1b8a890,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 787545394}
   m_SourcePrefab: {fileID: 100100000, guid: ff5a08850e7eacf4b9cf2e02f1b8a890, type: 3}
 --- !u!1 &787545392 stripped
 GameObject:
@@ -4558,6 +4562,33 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 787545391}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &787545393 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6807205088580110501, guid: ff5a08850e7eacf4b9cf2e02f1b8a890,
+    type: 3}
+  m_PrefabInstance: {fileID: 787545391}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &787545394
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 787545393}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.35
+  m_Center: {x: 0, y: -0.74, z: 0}
 --- !u!1001 &817628377
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5453,9 +5484,11 @@ MonoBehaviour:
   dissolveObject2: {fileID: 1319611458}
   drag: {fileID: 1192738333}
   dissolveOut: 1
-  dissolveSpeed: 0.5
+  dissolveSpeed: 0.1
   movementSpeed: 1
   waitToDissolve: 2
+  sfx: {fileID: 787545392}
+  dissolved: 0
 --- !u!1 &936894474
 GameObject:
   m_ObjectHideFlags: 0
@@ -6396,6 +6429,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2644288608247424918, guid: 4ba161e5c5eec064b841c1ed6ca0210f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Carpet
       objectReference: {fileID: 0}
     - target: {fileID: 2644288608247424918, guid: 4ba161e5c5eec064b841c1ed6ca0210f,
         type: 3}
@@ -13355,7 +13393,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 0f316e0d5d5653c458c966b32d5091a6, type: 2}
+      objectReference: {fileID: 2100000, guid: c5d3c419617e52f4cb7158798b0d0330, type: 2}
     - target: {fileID: 5641742228205367506, guid: 2042585e7249a1d449352e43d61dcc4a,
         type: 3}
       propertyPath: m_Materials.Array.data[0]

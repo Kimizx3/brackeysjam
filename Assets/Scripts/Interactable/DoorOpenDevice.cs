@@ -32,11 +32,12 @@ public class DoorOpenDevice : MonoBehaviour
 
     IEnumerator OpenDoorCoroutine()
     {
+        SFX.GetComponent<SoundManager>().playerDoorSound();
         float t = 0f;
         Quaternion initialRotation = transform.rotation;
         Quaternion targetRotation = initialRotation * Quaternion.Euler(0, openAngle, 0);
 
-        SFX.GetComponent<SoundManager>().playerDoorSound();
+        
         while (t < 1f)
         {
             t += Time.deltaTime * smoothSpeed;
