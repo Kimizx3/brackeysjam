@@ -23,7 +23,6 @@ public class DoorOpenDevice : MonoBehaviour
         if (!isOpeningOrClosing)
         {
             StartCoroutine(OpenDoorCoroutine());
-            SFX.GetComponent<SoundManager>()?.playerDoorSound();
         }
         
     }
@@ -45,6 +44,7 @@ public class DoorOpenDevice : MonoBehaviour
         }
 
         isOpeningOrClosing = false;
+        PlayDoorSoundIfApplicable();
     }
 
     public void CloseDoor()
@@ -69,6 +69,14 @@ public class DoorOpenDevice : MonoBehaviour
         }
 
         isOpeningOrClosing = false;
+        PlayDoorSoundIfApplicable();
+    }
+    private void PlayDoorSoundIfApplicable()
+    {
+        if (SFX != null && (Quaternion.Angle(transform.rotation, openRotation) < 0.1f || Quaternion.Angle(transform.rotation, closeRotation) < 0.1f))
+        {
+            SFX.GetComponent<SoundManager>()?.playerDoorSound();
+        }
     }
 
     public bool IsOpen()
