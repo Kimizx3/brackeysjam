@@ -8,7 +8,7 @@ public class LevelLoading : MonoBehaviour
     public float transitionTime = 1.5f;
 
     public Canvas canvas;
-    private bool isTransitioning = false;
+    private bool isTransitioning;
 
     
 

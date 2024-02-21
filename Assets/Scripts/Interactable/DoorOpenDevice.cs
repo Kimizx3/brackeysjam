@@ -1,13 +1,8 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Mathematics;
 using UnityEngine;
+using System.Collections;
 
 public class DoorOpenDevice : MonoBehaviour
 {
-    //[SerializeField] private Vector3 DoorPos;
-
     public float openAngle = 90f;
     public float closeAngle = 0f;
     public float smoothSpeed = 2f;
@@ -15,49 +10,56 @@ public class DoorOpenDevice : MonoBehaviour
 
     private Quaternion openRotation;
     private Quaternion closeRotation;
-
-    private bool open = false;
+    private bool isOpeningOrClosing = false;
 
     private void Start()
     {
-        openRotation = Quaternion.Euler(0,openAngle,0);
-        closeRotation = Quaternion.Euler(0,closeAngle,0);
+        openRotation = Quaternion.Euler(0, openAngle, 0);
+        closeRotation = Quaternion.Euler(0, closeAngle, 0);
     }
 
     public void OpenDoor()
     {
-        StartCoroutine(OpenDoorCoroutine());
+        if (!isOpeningOrClosing)
+        {
+            StartCoroutine(OpenDoorCoroutine());
+            SFX.GetComponent<SoundManager>()?.playerDoorSound();
+        }
         
     }
 
     IEnumerator OpenDoorCoroutine()
     {
-        SFX.GetComponent<SoundManager>().playerDoorSound();
+           
+        isOpeningOrClosing = true;
         float t = 0f;
         Quaternion initialRotation = transform.rotation;
-        Quaternion targetRotation = initialRotation * Quaternion.Euler(0, openAngle, 0);
+        Quaternion targetRotation = initialRotation * openRotation;
 
-        
         while (t < 1f)
         {
             t += Time.deltaTime * smoothSpeed;
             transform.rotation = Quaternion.Slerp(initialRotation, targetRotation, t);
+            
             yield return null;
         }
-        
-        open = true;
+
+        isOpeningOrClosing = false;
     }
 
-    void CloseDoor()
+    public void CloseDoor()
     {
-        StartCoroutine(CloseDoorCoroutine());
+        if (!isOpeningOrClosing)
+            StartCoroutine(CloseDoorCoroutine());
     }
 
     IEnumerator CloseDoorCoroutine()
     {
+        isOpeningOrClosing = true;
         float t = 0f;
         Quaternion initialRotation = transform.rotation;
-        Quaternion targetRotation = initialRotation * Quaternion.Euler(0, openAngle, 0);
+        Quaternion targetRotation = initialRotation * closeRotation;
+        
 
         while (t < 1f)
         {
@@ -65,6 +67,13 @@ public class DoorOpenDevice : MonoBehaviour
             transform.rotation = Quaternion.Slerp(initialRotation, targetRotation, t);
             yield return null;
         }
-        open = false;
+
+        isOpeningOrClosing = false;
+    }
+
+    public bool IsOpen()
+    {
+        return isOpeningOrClosing || Quaternion.Angle(transform.rotation, openRotation) < 1f;
     }
 }
+

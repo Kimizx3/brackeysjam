@@ -19,6 +19,7 @@ public class Door : MonoBehaviour
         interactableDoor.GetComponent<DoorOpenDevice>().enabled = false;
         // Initialize newLayer
         newLayer = LayerMask.NameToLayer("Default");
+        
     }
 
     // Update is called once per frame
@@ -39,6 +40,7 @@ public class Door : MonoBehaviour
                 fakeWall.SetActive(false);
                 //enable the interable script
                 interactableDoor.GetComponent<DoorOpenDevice>().enabled = true;
+                
             }
         }
         else if(puzzleComponent.GetComponent<SnapInteractable>() != null)
@@ -52,6 +54,7 @@ public class Door : MonoBehaviour
                 fakeWall.SetActive(false);
                 //enable the interable script
                 interactableDoor.GetComponent<DoorOpenDevice>().enabled = true;
+                
             }
         }
         
