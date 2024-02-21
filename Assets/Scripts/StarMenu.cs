@@ -1,13 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class StarMenu : MonoBehaviour
 {
-    LevelLoading _levelLoading;
-    void Start()
+    public GameObject _levelLoading;
+    
+    public void StartGame()
     {
-        _levelLoading = GetComponent<LevelLoading> ();
-        _levelLoading.LoadLevel();
+        _levelLoading.GetComponent<LevelLoading>().LoadLevel();
     }
 }
