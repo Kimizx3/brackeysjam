@@ -19,7 +19,7 @@ public class MouseControls : MonoBehaviour
     private void Update()
     {
         // Cast a ray forward from the center of the screen
-        Ray ray = cam.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0f));
+        Ray ray = cam.ScreenPointToRay(new Vector3(Screen.width / 4, Screen.height / 2, 0f));
         RaycastHit hit;
 
         // Perform the raycast
@@ -33,12 +33,12 @@ public class MouseControls : MonoBehaviour
             if (clickable != null)
             {
                 // Change cursor texture to clickableText
-                Cursor.SetCursor(clickableText, new Vector2(cursorSize.x / 2, cursorSize.y / 2), CursorMode.Auto);
+                Cursor.SetCursor(clickableText, new Vector2(cursorSize.x / 4, cursorSize.y / 2), CursorMode.Auto);
             }
             else
             {
                 // Change cursor texture to defaultText
-                Cursor.SetCursor(defaultText, new Vector2(cursorSize.x / 2, cursorSize.y / 2), CursorMode.Auto);
+                Cursor.SetCursor(defaultText, new Vector2(cursorSize.x / 4, cursorSize.y / 2), CursorMode.Auto);
             }
         }
         else
@@ -47,7 +47,7 @@ public class MouseControls : MonoBehaviour
             //Debug.Log("No object detected in front of the player.");
 
             // Change cursor texture to defaultText
-            Cursor.SetCursor(defaultText, new Vector2(cursorSize.x / 2, cursorSize.y / 2), CursorMode.Auto);
+            Cursor.SetCursor(defaultText, new Vector2(cursorSize.x / 4, cursorSize.y / 2), CursorMode.Auto);
         }
 
         // Lock the cursor at the center of the screen
