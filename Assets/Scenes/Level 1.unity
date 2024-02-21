@@ -2589,6 +2589,16 @@ PrefabInstance:
         type: 2}
     - target: {fileID: 2903267358475170232, guid: a735ab9dcffe542429b8fddef2156565,
         type: 3}
+      propertyPath: m_SceneBindings.Array.data[7].key
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2903267358475170232, guid: a735ab9dcffe542429b8fddef2156565,
+        type: 3}
+      propertyPath: m_SceneBindings.Array.data[8].key
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2903267358475170232, guid: a735ab9dcffe542429b8fddef2156565,
+        type: 3}
       propertyPath: m_SceneBindings.Array.data[0].value
       value: 
       objectReference: {fileID: 2084189720}
@@ -2622,6 +2632,16 @@ PrefabInstance:
       propertyPath: m_SceneBindings.Array.data[6].value
       value: 
       objectReference: {fileID: 2084189720}
+    - target: {fileID: 2903267358475170232, guid: a735ab9dcffe542429b8fddef2156565,
+        type: 3}
+      propertyPath: m_SceneBindings.Array.data[7].value
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2903267358475170232, guid: a735ab9dcffe542429b8fddef2156565,
+        type: 3}
+      propertyPath: m_SceneBindings.Array.data[8].value
+      value: 
+      objectReference: {fileID: 1192738333}
     - target: {fileID: 3731280192685579192, guid: a735ab9dcffe542429b8fddef2156565,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12154,6 +12174,7 @@ GameObject:
   - component: {fileID: 2084189722}
   - component: {fileID: 2084189721}
   - component: {fileID: 2084189720}
+  - component: {fileID: 2084189724}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -12292,6 +12313,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -90, y: 180, z: 0}
+--- !u!114 &2084189724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2084189719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9667d976ca090be4c9ee8470dcf8b546, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2112295259
 PrefabInstance:
   m_ObjectHideFlags: 0
