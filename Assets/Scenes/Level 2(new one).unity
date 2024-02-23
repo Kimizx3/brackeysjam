@@ -2843,6 +2843,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 96453232, guid: 29d03729c2fc7834a8b790ecebf0ab8d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4646,13 +4650,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 954378183958126955, guid: ff5a08850e7eacf4b9cf2e02f1b8a890,
         type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.021
+      objectReference: {fileID: 0}
+    - target: {fileID: 954378183958126955, guid: ff5a08850e7eacf4b9cf2e02f1b8a890,
+        type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.2
       objectReference: {fileID: 0}
     - target: {fileID: 954378183958126955, guid: ff5a08850e7eacf4b9cf2e02f1b8a890,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.8
+      value: 1.063
       objectReference: {fileID: 0}
     - target: {fileID: 2788930656754423632, guid: ff5a08850e7eacf4b9cf2e02f1b8a890,
         type: 3}
@@ -4724,6 +4733,16 @@ PrefabInstance:
       propertyPath: minimumVert
       value: -65
       objectReference: {fileID: 0}
+    - target: {fileID: 6982847345098476257, guid: ff5a08850e7eacf4b9cf2e02f1b8a890,
+        type: 3}
+      propertyPath: sensitivityHor
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6982847345098476257, guid: ff5a08850e7eacf4b9cf2e02f1b8a890,
+        type: 3}
+      propertyPath: sensitivityVert
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7334048641043256643, guid: ff5a08850e7eacf4b9cf2e02f1b8a890,
         type: 3}
       propertyPath: m_Enabled
@@ -4738,6 +4757,16 @@ PrefabInstance:
         type: 3}
       propertyPath: minimumVert
       value: -65
+      objectReference: {fileID: 0}
+    - target: {fileID: 7623031542839464478, guid: ff5a08850e7eacf4b9cf2e02f1b8a890,
+        type: 3}
+      propertyPath: sensitivityHor
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7623031542839464478, guid: ff5a08850e7eacf4b9cf2e02f1b8a890,
+        type: 3}
+      propertyPath: sensitivityVert
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 8224382027324658376, guid: ff5a08850e7eacf4b9cf2e02f1b8a890,
         type: 3}
